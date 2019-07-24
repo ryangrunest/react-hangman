@@ -77,6 +77,7 @@ class Hangman extends Component {
 
     let img = <img alt={ this.state.nWrong + " wrong guesses"} src={this.props.images[this.state.nWrong]} />;
     let buttons =  <p className='Hangman-btns'>{this.generateButtons()}</p>;
+    let youWin = <section><h2>You Win!</h2><button className="Hangman-restart" onClick={this.restart}>Restart</button></section>;
 
     if (this.state.nWrong >= this.props.maxWrong) {
       img = <h2>You lose. The correct word is {this.state.answer}</h2>
@@ -89,7 +90,7 @@ class Hangman extends Component {
         <h2> Number Guessed Incorrectly: {this.state.nWrong}</h2>
         {img}
         <p className='Hangman-word'>{this.guessedWord()}</p>
-       {buttons}
+        {this.guessedWord().join("") === this.state.answer ? youWin : buttons }
       </div>
     );
   }
