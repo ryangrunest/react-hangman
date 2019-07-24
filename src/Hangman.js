@@ -75,7 +75,7 @@ class Hangman extends Component {
   /** render: render game */
   render() {
 
-    let img = <img alt={ this.state.nWrong + "wrong guesses"} src={this.props.images[this.state.nWrong]} />;
+    let img = <img alt={ this.state.nWrong + " wrong guesses"} src={this.props.images[this.state.nWrong]} />;
     let buttons =  <p className='Hangman-btns'>{this.generateButtons()}</p>;
 
     if (this.state.nWrong >= this.props.maxWrong) {
